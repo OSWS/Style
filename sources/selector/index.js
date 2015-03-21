@@ -33,12 +33,12 @@ module.exports = function(exports) {
             return this;
         };
         
-        // (context: TContext, path: Array<TData>) => this;
-        this.__compile = function(context, path) {
+        // (context: TContext) => this;
+        this.__compile = function(context) {
             var selector = '';
-            for (var p in path) {
-                if (typeof(path[p]) == 'object' && path[p] instanceof exports.Selector) {
-                    selector += path[p]._selector + ' ';
+            for (var p in this.tree) {
+                if (typeof(this.tree[p]) == 'object' && this.tree[p] instanceof exports.Selector) {
+                    selector += this.tree[p]._selector + ' ';
                 }
             }
             return [selector, '{', this._options, '}', this._selectors];
