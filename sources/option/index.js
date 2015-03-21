@@ -18,7 +18,7 @@ module.exports = function(exports) {
         
         // (compilation: Compilation) => this;
         this.__compile = function(compilation) {
-            return [this._key, ':', this._value, this._important? ' !important;' : ';'];
+            return [this._key, ':', this._value, this._important? '!important;' : ';'];
         };
         
         // boolean;
