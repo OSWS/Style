@@ -16,8 +16,8 @@ module.exports = function(exports) {
         // TData;
         // this._value = undefined;
         
-        // (context: TContext) => this;
-        this.__compile = function(context, compilation) {
+        // (compilation: Compilation) => this;
+        this.__compile = function(compilation) {
             return [this._key, ':', this._value, this._important? ' !important;' : ';'];
         };
         

@@ -33,12 +33,12 @@ module.exports = function(exports) {
             return this;
         };
         
-        // (context: TContext) => this;
-        this.__compile = function(context) {
+        // (compilation: Compilation) => this;
+        this.__compile = function(compilation) {
             var selector = '';
-            for (var p in this.tree) {
-                if (typeof(this.tree[p]) == 'object' && this.tree[p] instanceof exports.Selector) {
-                    selector += this.tree[p]._selector + ' ';
+            for (var p in compilation.tree) {
+                if (typeof(compilation.tree[p]) == 'object' && compilation.tree[p] instanceof exports.Selector) {
+                    selector += compilation.tree[p]._selector + ' ';
                 }
             }
             return [selector, '{', this._options, '}', this._selectors];
